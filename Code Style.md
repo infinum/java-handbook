@@ -1,5 +1,3 @@
-# Code Style
-
 Our code style is based on [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html) with some
 slight modifications. Some of the most important guidelines are:
 

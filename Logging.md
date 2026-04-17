@@ -1,5 +1,3 @@
-# Logging
-
 ## SLF4J
 
 [SLF4J](https://www.slf4j.org/) (Simple Logging Facade for Java) is a facade built on top of existing logging frameworks
@@ -127,7 +125,7 @@ class EmptyBodyLogging() : OncePerRequestFilter() {
     }
 ```
 
-In Spring Web MVC now MDC will be propagated for whole lifespan of 
+In Spring Web MVC now MDC will be propagated for whole lifespan of
 a request meaning you can set logback.xml to use key values which you used in `MDC.put` command.
 
 ## Propagating MDC in Tomcat and WebClient Reactive
@@ -136,7 +134,7 @@ When dealing with Spring Web MVC and webflux Webclient MDC won't work out of the
 This makes total sense since webflux and reactive programming don't rely on a request being served by the same thread.
 Unblocking nature of reactive programming causes then a headache since during a webclient call threads will be switched.
 
-To solve this when creating a webclient bean filter should be introduced: 
+To solve this when creating a webclient bean filter should be introduced:
 
 ``` kotlin
 
