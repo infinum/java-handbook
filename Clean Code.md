@@ -1,5 +1,3 @@
-# Clean Code
-
 Working code does not mean *good* code. Bad code works too. It would be easier if it didn't, but it does. In this chapter we'll mention some good practices when writing code, so the code will be easier to read, understand and maintain.
 
 Before we get to real work, let's define what *good* code means.
