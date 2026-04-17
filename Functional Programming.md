@@ -1,5 +1,3 @@
-# Functional programming
-
 Functional programming gives a substantial advantage to Java programs. Code written in such a manner is concise,
 more expressive, with fewer moving parts, is easier to parallelize and is generally easier to
 understand than OO code. There is a challenge to change the way of thinking from imperative to
@@ -21,9 +19,9 @@ Here is an example of writing an anonymous class in a more concise and shorter w
 Before:
 
 ```java
-Comparator<Apple> byWeight = new Comparator<Apple>() { 
+Comparator<Apple> byWeight = new Comparator<Apple>() {
     public int compare(Apple a1, Apple a2){
-        return a1.getWeight().compareTo(a2.getWeight()); 
+        return a1.getWeight().compareTo(a2.getWeight());
     }
 };
 ```
@@ -78,7 +76,7 @@ Another way of creating `Stream` objects is by using static `Stream.of()` method
 Stream.of("a1", "a2", "a3")
     .findFirst()
     .ifPresent(System.out::println);
-    
+
 // a1
 ```
 
@@ -138,9 +136,9 @@ IntStream.range(1, 4)
 ## Optional\<T>
 
 The following example shows some additional functionality of the `Optional` class:
-Optional was designed to provide a better alternative to returning `null` from methods, not as a parameter type. 
-According to [Oracle's documentation](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html), 
-Optional should be used as a return type to indicate that a method may not return a value, helping to prevent 
+Optional was designed to provide a better alternative to returning `null` from methods, not as a parameter type.
+According to [Oracle's documentation](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html),
+Optional should be used as a return type to indicate that a method may not return a value, helping to prevent
 null pointer exceptions.
 
 It is used very often in functional programming, for example, when maximum value from collection is searched using

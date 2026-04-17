@@ -1,5 +1,3 @@
-# Testing
-
 When writing tests, [AssertJ](https://assertj.github.io/doc/) assertions are used by default. [Here](https://assertj.github.io/doc/#assertj-core-quick-start) is a quick start guide for AssertJ.
 
 ## Keep tests clean
@@ -128,20 +126,20 @@ public void foo_nine() throws Exception {
 * Use Behavior Driven Development (BDD) style of writing tests
   ```java
   import static org.mockito.BDDMockito.*;
- 
+
   @Mock
   Seller seller;
-  
+
   @InjectMocks
   Shop shop;
- 
+
   void shouldBuyBread() throws Exception {
     // given
     given(seller.askForBread()).willReturn(new Bread());
- 
+
     // when
     Goods goods = shop.buyBread();
- 
+
     // then
     assertThat(goods, containBread());
   }
@@ -182,7 +180,7 @@ A great tool for validating responses received from REST service is [REST-assure
   ```
 
 ## *Learning tests*
-*Learning tests* are used to get familiar with third-party libraries. It is a quick way for a developer to check his understanding of API usage and can be very useful to detect future changes. When those tests start to fail after some time, it means that something has changed in the API, so the developer has to update his code to conform with the changes, or stick with an older version of the API, if possible. 
+*Learning tests* are used to get familiar with third-party libraries. It is a quick way for a developer to check his understanding of API usage and can be very useful to detect future changes. When those tests start to fail after some time, it means that something has changed in the API, so the developer has to update his code to conform with the changes, or stick with an older version of the API, if possible.
 
 ## Mocking
 
@@ -228,7 +226,7 @@ Use Mockito annotations:
 class TestClass {
     @Mock
     private UserRepository userRepository;
-    
+
     @InjectMocks
     private UserService userService;
 }
@@ -248,14 +246,14 @@ private ArgumentCaptor<User> userCaptor;
 void shouldSaveUserWithCorrectData() {
     // Given
     User userToSave = new User("John", "john@example.com");
-    
+
     // When
     userService.saveUser(userToSave);
-    
+
     // Then
     verify(userRepository).save(userCaptor.capture());
     User savedUser = userCaptor.getValue();
-    
+
     assertThat(savedUser.getName()).isEqualTo("John");
     assertThat(savedUser.getEmail()).isEqualTo("john@example.com");
 }
@@ -273,15 +271,15 @@ void shouldSaveMultipleUsers() {
     // Given
     User user1 = new User("John", "john@example.com");
     User user2 = new User("Jane", "jane@example.com");
-    
+
     // When
     userService.saveUser(user1);
     userService.saveUser(user2);
-    
+
     // Then
     verify(userRepository, times(2)).save(userCaptor.capture());
     List<User> savedUsers = userCaptor.getAllValues();
-    
+
     assertThat(savedUsers).hasSize(2);
     assertThat(savedUsers.get(0).getName()).isEqualTo("John");
     assertThat(savedUsers.get(1).getName()).isEqualTo("Jane");
@@ -289,13 +287,13 @@ void shouldSaveMultipleUsers() {
 ```
 
 ### Wiremock
-[WireMock](https://wiremock.org/) is a simulator for HTTP-based APIs. Some might consider it a service virtualization 
+[WireMock](https://wiremock.org/) is a simulator for HTTP-based APIs. Some might consider it a service virtualization
 tool or a mock server. Wiremock is widely used in unit and integration testing. It can be run from [JUnit 4.x Rule](http://wiremock.org/docs/junit-rule/),
 [Java](http://wiremock.org/docs/java-usage/) and as a
 [Standalone Process](http://wiremock.org/docs/running-standalone/).
-It supports [Stubbing](http://wiremock.org/docs/stubbing/), 
-[Veryfing](http://wiremock.org/docs/verifying/), 
-[Request Matching](http://wiremock.org/docs/request-matching/), 
+It supports [Stubbing](http://wiremock.org/docs/stubbing/),
+[Veryfing](http://wiremock.org/docs/verifying/),
+[Request Matching](http://wiremock.org/docs/request-matching/),
 [Response Templating](http://wiremock.org/docs/response-templating/) etc.
 Visit the [WireMock docs](http://wiremock.org/docs/) for more information about WireMock.
 
@@ -338,7 +336,7 @@ class AwsServiceTest {
     void testS3Operations() {
         String bucketName = "test-bucket";
         s3.createBucket(bucketName);
-        
+
         assertThat(s3.listBuckets())
             .extracting(Bucket::getName)
             .contains(bucketName);

@@ -1,5 +1,3 @@
-# Literature
-
 ## Books, references
 
 ### Java

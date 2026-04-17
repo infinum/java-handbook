@@ -1,5 +1,3 @@
-# Code organisation
-
 ## Packaging
 
 The Java ecosystem provides many guidelines about structuring a project and naming things the right way.
